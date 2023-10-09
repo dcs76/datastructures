@@ -22,3 +22,13 @@ func (s *Set[T]) In(item T) bool {
 func (s *Set[T]) Len() int {
 	return len(s.items)
 }
+
+func (s Set[T]) GetElementsAsSlice() []T {
+	res := make([]T, len(s.items))
+	i := 0
+	for k := range s.items {
+		res[i] = k
+		i++
+	}
+	return res
+}

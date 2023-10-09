@@ -2,6 +2,8 @@ package datastructures
 
 import (
 	"testing"
+
+	"slices"
 )
 
 func TestSet(t *testing.T) {
@@ -25,5 +27,14 @@ func TestSet(t *testing.T) {
 
 	if s.In("not there") {
 		t.Fatal("'not there' should not be in the set")
+	}
+
+	slice := s.GetElementsAsSlice()
+	// sort it so the order is deterministic
+	slices.Sort(slice)
+
+	expected := []string{"a", "is", "of", "test", "this"}
+	if slices.Compare(expected, slice) != 0 {
+		t.Fatalf("extected %v, got %v", expected, slice)
 	}
 }

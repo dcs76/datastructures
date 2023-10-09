@@ -1,3 +1,3 @@
 module github.com/dcs76/datastructures
 
-go 1.19
+go 1.21.2
